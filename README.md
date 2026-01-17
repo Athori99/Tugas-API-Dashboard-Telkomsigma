@@ -1,67 +1,65 @@
-# Telkomsigma Fullstack Challenge: KONSUMSI API PUBLIK & DASHBOARD ANALITIK
+# Enterprise Dashboard - API Integration & Data Management
+**Tugas Seleksi Full Stack Developer - Telkomsigma**
 
+Aplikasi Dashboard Enterprise yang mengintegrasikan REST API eksternal (Rick and Morty API) dengan database internal MySQL secara integral. Aplikasi ini dirancang untuk menunjukkan kemampuan manajemen data CRUD, sinkronisasi API, dan visualisasi analitik data.
 
-## Pemenuhan Kriteria Tugas
-
-### 1. Konsumsi API Publik & Penyimpanan Data (Poin 1)
-- **Sumber API**: Aplikasi mengonsumsi API publik Rick and Morty secara real-time.
-- **Penyimpanan**: Data disimpan ke dalam database MySQL lokal.
-- **Struktur Data**: Setiap entri memiliki atribut wajib:
-  - **Nama/Title**: Nama karakter.
-  - **Tanggal**: Diambil dari properti `created` di API.
-  - **Kategori**: Menggunakan properti `species` (Contoh: Human, Alien).
-
-### 2. Fitur Sinkronisasi (Poin 2)
-- Dilengkapi dengan fungsi `syncService` yang secara otomatis menarik data dari API publik dan menyimpannya ke database untuk menjamin ketersediaan data secara offline.
-
-### 3. Manajemen Data CRUD (Poin 3)
-Fitur administrasi data lengkap pada tab "Management Data":
-- **Create**: Menambah entri data baru secara manual.
-- **Read**: Menampilkan data dalam tabel yang mendukung fitur **Pencarian (Search)** dan **Pengurutan (Sorting)**.
-- **Update**: Mengubah informasi Nama, Kategori, atau Tanggal pada data yang sudah ada.
-- **Delete**: Menghapus data dari database secara permanen.
-
-### 4. Dashboard Analitik (Poin 4 & 5)
-Halaman Dashboard menyajikan informasi ringkasan yang terpisah dari halaman manajemen data:
-- **Pie Chart**: Visualisasi distribusi data berdasarkan kategori (Contoh: Berapa banyak jumlah 'Human' dibanding 'Alien').
-- **Column Chart**: Agregasi data yang masuk per tanggal untuk memantau tren harian.
-- **Periode Terkini**: Menampilkan ringkasan aktivitas dalam 1 bulan terakhir.
-
-### 5. Filter Tanggal Interaktif (Poin 6)
-- Tersedia kontrol **Date Range Picker** (Start Date & End Date) pada Dashboard.
-- Filter ini bersifat reaktif, di mana perubahan tanggal akan langsung memperbarui seluruh grafik secara bersamaan.
-
-### 6. Nilai Tambah (Poin 7)
-- **Summary Cards**: Menampilkan statistik instan (Total Data, Kategori Terbanyak, Data Terbaru).
-- **Optimasi Performa**: Menggunakan React `useMemo` untuk efisiensi pengolahan data pada sisi klien.
-- **UX/UI Modern**: Menggunakan desain berbasis kartu (Card-Based Layout) dengan warna korporat Telkomsigma.
+## 🚀 Fitur Utama
+* **API Synchronization**: Sinkronisasi data otomatis dari API eksternal ke database MySQL dengan logika *Upsert* (Insert or Update).
+* **Real-time Analytics**: Dashboard visual yang menampilkan tren data dan proporsi kategori secara dinamis.
+* **Management Data (CRUD)**: Fitur lengkap untuk Menambah, Melihat, Mengubah, dan Menghapus data secara manual.
+* **Resilient Backend**: Penanganan error jaringan (ECONNRESET) dan kebijakan keamanan CORS yang terintegrasi.
+* **Responsive UI**: Antarmuka modern yang dibangun dengan React dan Bootstrap.
 
 ## 🛠️ Stack Teknologi
+* **Frontend**: React.js, Axios, Chart.js/Recharts.
+* **Backend**: Node.js, Express.js.
+* **Database**: MySQL (MariaDB).
+* **API Source**: Rick and Morty Public API.
 
-- **Backend**: Node.js & Express.js.
-- **Database**: MySQL.
-- **Frontend**: React.js (Vite), Axios, Chart.js.
-- **Styling**: CSS Modern (Responsive & Fluid Width).
+## 📋 Prasyarat Sistem
+* Node.js (versi 14 atau terbaru)
+* XAMPP / MySQL Server
+* Web Browser (Chrome/Edge)
 
-## ⚙️ Cara Instalasi & Menjalankan
+## ⚙️ Instalasi & Konfigurasi
 
-1. **Persiapan Database**:
-   - Buat database MySQL dengan nama `db_tugas_api_dashboard`.
-   - Konfigurasi kredensial database pada file `.env` di folder backend.
+### 1. Database
+* Nyalakan MySQL di XAMPP.
+* Database melalui phpMyAdmin dengan nama: `tugas_api_dashboard`.
+* Import struktur tabel (jika ada file SQL) atau biarkan sistem melakukan migrasi awal.
 
-2. **Backend**:
-   Bash
-   cd backend
-   npm install
-   node index.js
+### 2. Backend
+* Masuk ke folder backend.
+* Buat file `.env` dan sesuaikan konfigurasinya:
+    ```env
+    PORT=5000
+    DB_HOST=localhost
+    DB_USER=root
+    DB_PASSWORD=
+    DB_NAME=tugas_api_dashboard
+    ```
+* Jalankan perintah:
+    ```bash
+    npm install
+    node index.js
+    ```
 
-3. Frontend:
-    Bash
-cd frontend
-npm install
-npm run dev
+### 3. Frontend
+* Masuk ke folder frontend.
+* Jalankan perintah:
+    ```bash
+    npm install
+    npm run dev
+    ```
+* Akses aplikasi melalui `http://localhost:5173`.
 
-Aplikasi dapat diakses di http://localhost:5173.
+## 🛡️ Penanganan Kendala (Troubleshooting)
+Selama pengembangan, beberapa kendala teknis telah diatasi secara integral:
+* **Port Conflict**: Memindahkan backend ke port 5000 untuk menghindari tabrakan dengan port pengembangan frontend.
+* **Network Resilience**: Implementasi timeout dan error handling pada Axios untuk menangani kegagalan koneksi API eksternal.
+* **CORS Policy**: Pengaturan middleware CORS untuk mengizinkan komunikasi lintas asal antara frontend dan backend secara aman.
 
-
-© 2026 | Dikembangkan oleh ALAHIDIN ATHORI untuk Telkomsigma.
+---
+**Kontak & Portofolio**
+* **Nama**: [ALAHIDIN ATHORI]
+* **Posisi**: Candidate Full Stack Developer - Telkomsigma
