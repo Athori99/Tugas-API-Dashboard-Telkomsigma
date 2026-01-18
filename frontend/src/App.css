@@ -1,96 +1,142 @@
-/* Menghilangkan ruang kosong di seluruh aplikasi */
-html, body, #root {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    min-height: 100vh;
-    background-color: #f0f2f5;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* Container Utama */
 .app-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f4f7fa; /* Warna latar belakang dashboard profesional */
 }
 
 /* Header Styling */
 .main-header {
-    width: 100%;
-    background: linear-gradient(135deg, #0056b3 0%, #00a1ff 100%);
-    color: white;
-    padding: 20px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: #004a99; /* Biru Telkomsigma */
+  color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .header-content {
-    max-width: 100%; /* Memastikan header memenuhi layar */
-    padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo-section h1 {
-    margin: 0;
-    font-size: 24px;
-    letter-spacing: 0.5px;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .logo-section p {
-    margin: 5px 0 0 0;
-    opacity: 0.8;
-    font-size: 14px;
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
 
 /* Navigasi Tab */
 .nav-tabs {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .tab-btn {
-    padding: 10px 25px;
-    border-radius: 25px;
-    border: 2px solid rgba(255,255,255,0.3);
-    background: transparent;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .tab-btn:hover {
-    background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .tab-btn.active {
-    background: white;
-    color: #0056b3;
-    border-color: white;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: white;
+  color: #004a99;
+  font-weight: 700;
 }
 
-/* Main Content Styling */
+/* Tombol Sinkronisasi */
+.sync-btn {
+  background: #ffc107; /* Warna kontras agar menarik perhatian */
+  color: #212529;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sync-btn:hover:not(:disabled) {
+  background: #e0a800;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
+.sync-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Animasi Fade-In */
+.fade-in {
+  animation: fadeInContainer 0.6s ease-out forwards;
+}
+
+@keyframes fadeInContainer {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Card Interaction */
+.stat-card {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+  border-color: #007bff !important;
+}
+
+/* Content Area */
 .main-content {
-    width: 100%;
-    padding: 30px 40px;
-    box-sizing: border-box; /* Kunci menghilangkan ruang kosong kanan */
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  width: 100%;
 }
 
 .section-title {
-    color: #333;
-    margin-bottom: 25px;
-    font-weight: 600;
+  color: #334155;
+  margin-bottom: 25px;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
 }
 
-/* Animasi Halus */
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: #007bff;
+  border-radius: 2px;
 }

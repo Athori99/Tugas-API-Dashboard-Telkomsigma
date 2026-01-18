@@ -25,7 +25,7 @@ Aplikasi Dashboard Enterprise yang mengintegrasikan REST API eksternal (Rick and
 
 ### 1. Database
 * Nyalakan MySQL di XAMPP.
-* Database melalui phpMyAdmin dengan nama: `tugas_api_dashboard`.
+* Buat database baru melalui phpMyAdmin dengan nama: `tugas_api_dashboard`.
 * Import struktur tabel (jika ada file SQL) atau biarkan sistem melakukan migrasi awal.
 
 ### 2. Backend
@@ -61,5 +61,5 @@ Selama pengembangan, beberapa kendala teknis telah diatasi secara integral:
 
 ---
 **Kontak & Portofolio**
-* **Nama**: [ALAHIDIN ATHORI]
+* **Nama**: [Nama Anda]
 * **Posisi**: Candidate Full Stack Developer - Telkomsigma
