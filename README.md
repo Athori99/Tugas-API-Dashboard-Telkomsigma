@@ -61,5 +61,5 @@ Selama pengembangan, beberapa kendala teknis telah diatasi secara integral:
 
 ---
 **Kontak & Portofolio**
-* **Nama**: [Nama Anda]
+* **Nama**: ALAHIDIN ATHORI
 * **Posisi**: Candidate Full Stack Developer - Telkomsigma
